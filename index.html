@@ -100,24 +100,21 @@ tbody tr:hover{background:var(--bg-soft)}
 .mult{font-weight:900}
 .win-g{color:#2e9e5b;font-weight:900}
 .note{margin-top:22px;color:var(--text-soft);font-size:clamp(.82rem,1.3vw,1rem);line-height:1.55;max-width:980px}
-#footer{position:fixed;bottom:18px;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:0 26px;pointer-events:none}
+#footer{position:fixed;bottom:48px;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:0 26px;pointer-events:none}
 #footer button{pointer-events:auto;background:var(--card);border:1px solid var(--card-border);color:var(--text);border-radius:30px;padding:8px 18px;font-size:.92rem;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:.2s;display:flex;align-items:center;gap:6px}
 #footer button:hover{color:var(--accent);transform:translateY(-2px)}
 #pageInd{font-size:.95rem;font-weight:700;color:var(--text-soft);background:var(--card);border:1px solid var(--card-border);padding:6px 16px;border-radius:30px;box-shadow:var(--shadow)}
 #pageInd b{color:var(--accent)}
-#thumbZone{position:fixed;bottom:0;left:0;right:0;height:90px;z-index:45}
-#thumbs{position:absolute;bottom:8px;left:50%;transform:translateX(-50%) translateY(120%);display:flex;gap:8px;background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:8px 10px;box-shadow:var(--shadow);opacity:0;transition:.3s;pointer-events:none}
-#thumbZone:hover #thumbs{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
-.thumb{width:118px;height:66px;border-radius:8px;border:2px solid var(--card-border);background:var(--bg-soft);cursor:pointer;font-size:.62rem;font-weight:700;color:var(--text-soft);padding:7px 8px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:.18s;text-align:left}
-.thumb:hover{transform:translateY(-3px)}
-.thumb.cur{border-color:var(--accent);color:var(--text)}
-.thumb .tn{font-size:.6rem;color:var(--accent);font-weight:900}
+#sectionBar{position:fixed;bottom:0;left:0;right:0;height:44px;z-index:50;background:var(--card);border-top:1px solid var(--card-border);display:flex;justify-content:center;align-items:stretch}
+.sec-item{padding:0 22px;display:flex;align-items:center;font-size:clamp(.72rem,1.1vw,.85rem);font-weight:700;color:var(--text-soft);cursor:pointer;border-bottom:3px solid transparent;transition:.18s;white-space:nowrap}
+.sec-item:hover{color:var(--text)}
+.sec-item.active{color:var(--accent);border-bottom-color:var(--accent)}
 @media(max-width:760px){
   .slide{padding:11vh 7vw 12vh;overflow-y:auto}
   .slide.active{display:block}
   .slide .body{justify-content:flex-start}
   .takeaways,.cols,.charts{grid-template-columns:1fr;gap:16px}
-  #thumbZone{display:none}
+  #sectionBar{display:none}
   .bar-row{grid-template-columns:70px 1fr 42px}
 }
 </style>
@@ -137,13 +134,13 @@ tbody tr:hover{background:var(--bg-soft)}
   <div class="takeaways" style="margin-top:24px">
     <div class="tk win">
       <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div>
-      <h3>觸及：AI 方式大幅領先</h3>
+      <h3>觸及：AI 方式領先</h3>
       <div class="big">23 / 24</div>
       <p>跨型態比較 24 組，AI（圖像）方式觸及 23 勝 1 負，放大幅度 0.75–27.6 倍；嬰兒奶粉食安組為唯一例外（連結 145 > 圖像 109）。</p>
     </div>
     <div class="tk win">
       <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-      <h3>互動：拿掉點擊仍大幅領先</h3>
+      <h3>互動：拿掉點擊仍領先</h3>
       <div class="big">17 / 24</div>
       <p>排除「連結點擊」後，以分享＋留言＋心情比較：24 組中 <b>17 勝、7 持平</b>（差距 = 1 視為持平）。</p>
     </div>
@@ -165,13 +162,13 @@ tbody tr:hover{background:var(--bg-soft)}
       <div class="card">
         <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="8"/><rect x="14" y="5" width="3" height="13"/></svg>實驗主軸</h3>
         <ul class="list">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>期間</b>　6/1 – 6/15，共 <b>28 組</b> FB A/B test</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>期間</b>　6/1 – 6/16，共 <b>30 組</b> FB A/B test</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>變數</b>　AI 方式　vs　原方式（多為連結 + lead 分享）</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>關鍵</b>　agent 幾乎只建議「圖像」、不建議連結格式 → 故 24 組多呈現為「圖像 vs 連結」</span></li>
         </ul>
       </div>
       <div class="card">
-        <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>25 組分三類</h3>
+        <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>30 組分三類</h3>
         <ul class="list">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>跨型態（主軸）· 24 組</b>　AI 圖像 vs 原方式連結。</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span><b>文案 · 5 組</b>　AI 文案 vs news lead，型態相同 → 單獨檢驗「文案」。</span></li>
@@ -191,37 +188,63 @@ tbody tr:hover{background:var(--bg-soft)}
   <h2>本週進度：Skill 修改</h2>
   <div class="body">
     <div class="cols" style="grid-template-columns:1fr 1fr;gap:26px">
-      <div class="card">
-        <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--red)"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>發現的問題</h3>
-        <ul class="list">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>捏造因果</b>　把原文中各自獨立的事實串聯成「因為…所以…」，原文沒有說的關係被 AI 自行補上</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>關鍵詞義偷換</b>　為求行文簡潔或加強張力，以語感相近的詞語置換原文的精確表述，導致事實意涵錯誤（affected ≠ displaced、pledged to establish a €50M fund ≠ pledged €50M）；政治外交與災難稿尤其高風險</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>引言相關問題</b>　對 paraphrase 加引號升格為直接引言；更嚴重者：幻想原文不存在的發言</span></li>
-        </ul>
-        <div class="callout" style="margin-top:16px;border-left-color:var(--amber)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--amber)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <p>根本原因：AI 以「提升互動率」為目標，走了新聞編輯的捷徑。</p>
+      <div class="card" style="display:flex;flex-direction:column;gap:16px">
+        <h3 style="font-size:clamp(1.2rem,2vw,1.6rem);display:flex;align-items:center;gap:10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--red)"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>發現的問題</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center">
+          <div style="border-left:4px solid var(--red);padding:12px 16px;background:rgba(196,30,58,.06);border-radius:0 8px 8px 0">
+            <span style="font-size:clamp(1.05rem,1.9vw,1.4rem);font-weight:900;color:var(--text)">捏造因果</span>
+          </div>
+          <div style="border-left:4px solid var(--red);padding:12px 16px;background:rgba(196,30,58,.06);border-radius:0 8px 8px 0">
+            <span style="font-size:clamp(1.05rem,1.9vw,1.4rem);font-weight:900;color:var(--text)">關鍵詞義偷換</span>
+          </div>
+          <div style="border-left:4px solid var(--red);padding:12px 16px;background:rgba(196,30,58,.06);border-radius:0 8px 8px 0">
+            <span style="font-size:clamp(1.05rem,1.9vw,1.4rem);font-weight:900;color:var(--text)">引言相關問題</span>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:#2e9e5b"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>加入的防線</h3>
-        <ul class="list">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg><span><b>事實資訊整理</b>　事實清單鎖定 → 動詞歸因鎖 → 因果歸零檢查；強制執行，不可跳過</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg><span><b>設立改寫策略邊界</b>　原：ER 最佳化目標無邊界定義；現：明確劃出「創意發揮區」，列舉可動（節奏、順序、句型）vs. 不可動（事實、動詞、邏輯關係）的範圍</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg><span><b>引號授權三問</b>　原文有引號？逐字一致？歸因正確？三問有一否 → 改 paraphrase</span></li>
-        </ul>
-        <div class="callout" style="margin-top:16px;border-left-color:var(--accent)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--accent)"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-          <p>架構已建立，人工修正負擔是否實際下降仍在觀察中。</p>
+      <div class="card" style="display:flex;flex-direction:column;gap:16px">
+        <h3 style="font-size:clamp(1.2rem,2vw,1.6rem);display:flex;align-items:center;gap:10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:#2e9e5b"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>加入的防線</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:center">
+          <div style="border-left:4px solid #2e9e5b;padding:12px 16px;background:rgba(46,158,91,.06);border-radius:0 8px 8px 0">
+            <span style="font-size:clamp(1.05rem,1.9vw,1.4rem);font-weight:900;color:var(--text)">事實資訊整理</span>
+          </div>
+          <div style="border-left:4px solid #2e9e5b;padding:12px 16px;background:rgba(46,158,91,.06);border-radius:0 8px 8px 0">
+            <span style="font-size:clamp(1.05rem,1.9vw,1.4rem);font-weight:900;color:var(--text)">設立改寫策略邊界</span>
+          </div>
+          <div style="border-left:4px solid #2e9e5b;padding:12px 16px;background:rgba(46,158,91,.06);border-radius:0 8px 8px 0">
+            <span style="font-size:clamp(1.05rem,1.9vw,1.4rem);font-weight:900;color:var(--text)">引號授權三問</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Slide 4: 文案對比 -->
+<!-- Slide 4: 捏造事實 -->
 <section class="slide">
-  <h2>AI 文案 vs 原稿 Lead｜範例對比</h2>
+  <h2>AI 文案 vs 原稿 Lead｜Bad Example (捏造事實)</h2>
+  <div class="body">
+    <div class="cols">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px">
+        <div class="kicker" style="color:var(--text-soft)">原稿 Lead</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Taichung Mayor Lu Shiow-yen (盧秀燕) wrapped up a packed day of diplomacy in Berlin on Tuesday, signing a memorandum of understanding with Görlitz and holding talks with German lawmakers.</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;border-color:var(--red)">
+        <div class="kicker" style="color:var(--red)">AI 初稿（未發出）</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Taichung Mayor Lu Shiow-yen signed a memorandum of understanding with Germany's Görlitz on Tuesday, covering cooperation in energy, technology, culture, education, and disaster prevention. <mark style="background:rgba(196,30,58,.15);color:inherit;border-radius:4px;padding:1px 4px">Görlitz sits near Dresden, where TSMC's European fab is set to begin operations next year — a connection Mayor Lu highlighted as the backdrop for deepening ties between the two regions.</mark></p>
+        <p class="muted" style="font-size:.82rem">#Taiwan #Taichung #Germany #TSMC #CityDiplomacy</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:20px;border-left-color:var(--red)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--red)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>Highlight句子為 AI 捏造——原文無此發言，TSMC 連結為 AI 自行推論加入。<b>實際 A/B 測試發出的是修正後版本。</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 5: 文案對比 -->
+<section class="slide">
+  <h2>AI 文案 vs 原稿 Lead｜Good Example</h2>
   <div class="body">
     <div class="cols">
       <div class="card" style="display:flex;flex-direction:column;gap:14px">
@@ -237,12 +260,60 @@ tbody tr:hover{background:var(--bg-soft)}
     </div>
     <div class="callout" style="margin-top:20px;border-left-color:#2e9e5b">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg>
-      <p>AI 版以齊柏林逝世九週年為情感入口，再帶出福衛八號新聞事實。同一則新聞，原稿直接用電訊 lead，AI 改寫找到人的故事作為連結，是「說故事型」改寫的典型示範。</p>
+      <p>AI 版以齊柏林逝世九週年為情感入口，再帶出福衛八號新聞事實。同一則新聞，原稿直接用電訊 lead，AI 改寫在原稿中找到人的故事作為連結。</p>
     </div>
   </div>
 </section>
 
-<!-- Slide 5 -->
+<!-- Slide 6: 廢棄物 win -->
+<section class="slide">
+  <h2>AI 文案 vs 原稿 Lead｜Win (觸及/參與贏)</h2>
+  <div class="body">
+    <div class="cols">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px">
+        <div class="kicker" style="color:var(--text-soft)">原方式　連結貼文　觸及 91</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">The Legislative Yuan on Tuesday passed amendments to the Waste Disposal Act that raise penalties for illegal disposal of industrial waste and impose harsher punishments for dumping in environmentally sensitive areas.</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;border-color:#2e9e5b">
+        <div class="kicker" style="color:#2e9e5b">AI 方式　圖像貼文　✦ 觸及 362</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Taiwan's legislature on Tuesday passed amendments to the Waste Disposal Act, raising the maximum prison sentence for illegal industrial waste dumping from five to seven years and increasing fines for improper waste removal from NT$6,000 to NT$100,000.</p>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Sentences can increase by up to 50% for dumping in environmentally sensitive areas. The amendments also introduce electronic-fencing surveillance to track waste flows in at-risk areas and classify waste from end-of-life renewable energy equipment as recyclable.</p>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">A two-year grace period will apply before the amendments take effect following presidential promulgation.</p>
+        <p class="muted" style="font-size:.82rem">#Taiwan #Environment #WasteManagement #Legislation #FocusTaiwan</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:20px;border-left-color:#2e9e5b">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg>
+      <p>圖像 <b>362</b> vs 連結 <b>91</b>　→　<b>3.98×</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 7: 觸及例外 -->
+<section class="slide">
+  <h2>AI 文案 vs 原稿 Lead｜Fail (觸及/參與輸)</h2>
+  <div class="body">
+    <div class="cols">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;border-color:#2e9e5b">
+        <div class="kicker" style="color:#2e9e5b">原方式　連結貼文　✦ 觸及 145</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">The Taiwan Food and Drug Administration (TFDA) said Monday that an infant formula suspected of being linked to cases of infant botulism in the United States has not been imported into Taiwan for at least three years.</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px">
+        <div class="kicker" style="color:var(--text-soft)">AI 方式　圖像貼文　觸及 109</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">A U.S. infant formula linked to three botulism cases has not been imported to Taiwan for at least three years, the Taiwan Food and Drug Administration confirmed.</p>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">The product — Nara Organics Whole Milk Infant Formula — was voluntarily recalled on June 12 after cases reported between April and May 2026. No samples have tested positive for Clostridium botulinum as of Sunday; testing is ongoing.</p>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Taiwan's TFDA said a review of its border inspection database found no import records for the product, which is also not registered in Taiwan's infant formula database.</p>
+        <p class="muted" style="font-size:.82rem">#FoodSafety #Taiwan #TFDA #InfantFormula #FocusTaiwan</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:20px;border-left-color:var(--amber)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--amber)"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <p>連結 <b>145</b> vs 圖像 <b>109</b>　→　<b>0.75×</b>（唯一例外）</p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 8 -->
 <section class="slide">
   <h2>進一步看：誰最受惠於 AI 方式</h2>
   <div class="body">
@@ -251,30 +322,25 @@ tbody tr:hover{background:var(--bg-soft)}
         <table>
           <thead><tr><th>題材組</th><th>平均觸及放大</th><th>圖像互動</th><th>連結互動</th></tr></thead>
           <tbody>
-            <tr><td class="grp">社會 / 民生 (8)</td><td class="mult win-g">3.3×</td><td><b>98</b></td><td>44</td></tr>
-            <tr><td class="grp">財經 / 產業 (4)</td><td class="mult win-g">2.5×</td><td><b>10</b></td><td>6</td></tr>
-            <tr><td class="grp">政治 / 外交兩岸 (6)</td><td class="mult">2.3×</td><td><b>24</b></td><td>7</td></tr>
             <tr><td class="grp">環境 / 公安 (4)</td><td class="mult win-g">10×↑</td><td><b>34</b></td><td>2</td></tr>
             <tr><td class="grp">文化（1）</td><td class="mult win-g">4.4×</td><td><b>2</b></td><td>1</td></tr>
-            <tr><td class="grp">科技（1）</td><td class="mult win-g">2×</td><td><b>2</b></td><td>0</td></tr>
+            <tr><td class="grp">社會 / 民生 (8)</td><td class="mult win-g">3.3×</td><td><b>98</b></td><td>44</td></tr>
+            <tr><td class="grp">財經 / 產業 (4)</td><td class="mult win-g">2.5×</td><td><b>10</b></td><td>6</td></tr>
+            <tr><td class="grp">政治 / 外交兩岸 (6)</td><td class="mult win-g">2.3×</td><td><b>24</b></td><td>7</td></tr>
+            <tr><td class="grp">科技（1）</td><td class="mult warn">2×</td><td><b>2</b></td><td>0</td></tr>
           </tbody>
         </table>
-        <p class="muted" style="font-size:.78rem;margin-top:12px;line-height:1.5">觸及放大為各組平均；環境組受「雲林風機 27.6×」極端值拉高，新增廢棄物棄置（3.98×）後平均從 12× 降至 10×。科技新增 Tesla FSD（1.96×，n=1 觀察用）；文化新增陳巍中指揮獲獎（4.4×，n=1 觀察用）。互動為分享＋留言＋心情合計。</p>
       </div>
-      <div class="card">
-        <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>三個觀察</h3>
-        <ul class="list">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>社會/民生</b>（8 組 · 3.3×）整體穩定，嬰兒奶粉食安組為首次觸及例外（連結 145 > 圖像 109）；新增後平均仍達 3.3×。</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>財經/產業</b>（4 組 · 2.5×）與 <b>政治/外交</b>（2.3×）相對溫和；財經新增 EVA Air MLB（2.3×）後趨勢維持。</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>環境/公安</b>（10×）整體最高——雲林風機 27.6× 仍為全體最高峰，新增廢棄物棄置（3.98×）後樣本增至 4 組；科技新增 Tesla FSD（n=1 待累積）。</span></li>
+      <div class="card" style="display:flex;flex-direction:column;gap:16px;justify-content:center">
+        <h3 style="font-size:clamp(1.2rem,2vw,1.6rem);color:#2e9e5b">圖像方式整體優勢持續</h3>
+        <ul class="list" style="margin-top:4px">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg><span>社會／民生（8 組）樣本最多、趨勢最可信</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:var(--amber)"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>環境最高但有極端值；財經、政治趨勢一致仍需補量</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="color:var(--text-soft)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>文化、科技各 n=1，先記錄</span></li>
         </ul>
-        <div class="callout" style="border-left-color:var(--accent)">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--accent)"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-          <p><b>「強畫面」相片帶動爆量：</b>風機火災 27.6×、魚獲過漁 6.3×，皆具視覺衝擊力。</p>
-        </div>
+        <p style="font-size:.78rem;color:var(--text-soft);line-height:1.55;margin-top:12px;padding-top:12px;border-top:1px solid var(--card-border)">ER（互動／觸及）因圖像組觸及放大而稀釋，跨格式直接比較意義有限；加上 A/B test 規模小、觀測時間短，待後續與同類型貼文歷史數據對比再評估。</p>
       </div>
     </div>
-    <p class="note" style="margin-top:16px">⚠️ 觸及：AI 圖像 <b>23 / 24 勝</b>（嬰兒奶粉食安為唯一例外：連結 145 > 圖像 109）。互動（分享＋留言＋心情）<b>17 / 24 勝</b>，7 組持平（差距 = 1 不計輸贏）。題材只影響「放大幅度」；每組仍屬<b>探索性觀察</b>、非統計結論。</p>
   </div>
 </section>
 
@@ -303,24 +369,28 @@ tbody tr:hover{background:var(--bg-soft)}
 
 <div id="footer">
   <button id="prevBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>上一頁</button>
-  <span id="pageInd"><b>1</b> / 6</span>
+  <span id="pageInd"><b>1</b> / 9</span>
   <button id="nextBtn">下一頁<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
 </div>
-<div id="thumbZone"><div id="thumbs"></div></div>
+<div id="sectionBar"></div>
 
 <script>
 const slides=[...document.querySelectorAll('.slide')];
-const titles=["結論先講","Recap","本週進度","文案對比","題材分組","Way Forward"];
+const titles=["Intro","Recap","Skill 修改","4組文案對比","","","","題材分組","Way Forward"];
 let cur=0;
 const pageInd=document.getElementById('pageInd');
 const progress=document.getElementById('progress');
-const thumbs=document.getElementById('thumbs');
-titles.forEach((t,i)=>{
-  const d=document.createElement('div');d.className='thumb';
-  d.innerHTML=`<span class="tn">0${i+1}</span><span>${t}</span>`;
-  d.onclick=()=>go(i);thumbs.appendChild(d);
+const sectionBar=document.getElementById('sectionBar');
+// sections: [label, firstSlide, lastSlide]
+const sections=[
+  ['Intro',0,0],['Recap',1,1],['Skill 修改',2,2],
+  ['4組文案對比',3,6],['題材分組',7,7],['Way Forward',8,8]
+];
+const secEls=sections.map(([label,from,to])=>{
+  const d=document.createElement('div');d.className='sec-item';
+  d.textContent=label;d.onclick=()=>go(from);
+  sectionBar.appendChild(d);return{el:d,from,to};
 });
-const thumbEls=[...thumbs.children];
 function go(i){
   i=Math.max(0,Math.min(slides.length-1,i));
   slides[cur].classList.remove('active');
@@ -329,7 +399,7 @@ function go(i){
   slides[cur].querySelectorAll('.bar-fill').forEach(b=>{b.style.animation='none';void b.offsetWidth;b.style.animation='';});
   pageInd.innerHTML=`<b>${i+1}</b> / ${slides.length}`;
   progress.style.width=((i+1)/slides.length*100)+'%';
-  thumbEls.forEach((t,j)=>t.classList.toggle('cur',j===i));
+  secEls.forEach(({el,from,to})=>el.classList.toggle('active',i>=from&&i<=to));
 }
 document.getElementById('nextBtn').onclick=()=>go(cur+1);
 document.getElementById('prevBtn').onclick=()=>go(cur-1);
