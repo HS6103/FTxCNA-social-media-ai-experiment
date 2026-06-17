@@ -219,7 +219,30 @@ tbody tr:hover{background:var(--bg-soft)}
   </div>
 </section>
 
-<!-- Slide 3 -->
+<!-- Slide 4: 文案對比 -->
+<section class="slide">
+  <h2>AI 文案 vs 原稿 Lead｜範例對比</h2>
+  <div class="body">
+    <div class="cols">
+      <div class="card" style="display:flex;flex-direction:column;gap:14px">
+        <div class="kicker" style="color:var(--text-soft)">原方式　連結貼文</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Taipei, June 10 (CNA) Fifteen photographic images sent from the Formosat-8A (FS-8A) satellite, the first in Taiwan's Formosat-8 constellation, were released by the Taiwan Space Agency (TASA) on Wednesday.</p>
+        <p class="muted" style="font-size:.82rem">電訊稿 lead 直接下，事實清楚但缺乏進入點。</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:14px;border-color:var(--accent)">
+        <div class="kicker">AI 方式　圖像貼文</div>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Nine years ago today, documentary filmmaker Chi Po-lin died in a helicopter crash while capturing Taiwan from the air. A satellite named in his honor is now doing the same from space. Taiwan's Formosat-8A — the first in a planned eight-satellite constellation — has released 15 images of the island at up to 0.7-meter resolution, capturing ports, airports, coastlines, and earthquake scars.</p>
+        <p class="muted" style="font-size:.82rem">#Taiwan #Satellite #Formosat #Space #TaiwanSpace</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:20px;border-left-color:#2e9e5b">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:#2e9e5b"><path d="M20 6 9 17l-5-5"/></svg>
+      <p>AI 版以齊柏林逝世九週年為情感入口，再帶出福衛八號新聞事實。同一則新聞，原稿直接用電訊 lead，AI 改寫找到人的故事作為連結，是「說故事型」改寫的典型示範。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 5 -->
 <section class="slide">
   <h2>進一步看：誰最受惠於 AI 方式</h2>
   <div class="body">
@@ -280,14 +303,14 @@ tbody tr:hover{background:var(--bg-soft)}
 
 <div id="footer">
   <button id="prevBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>上一頁</button>
-  <span id="pageInd"><b>1</b> / 5</span>
+  <span id="pageInd"><b>1</b> / 6</span>
   <button id="nextBtn">下一頁<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
 </div>
 <div id="thumbZone"><div id="thumbs"></div></div>
 
 <script>
 const slides=[...document.querySelectorAll('.slide')];
-const titles=["結論先講","Recap","本週進度","題材分組","Way Forward"];
+const titles=["結論先講","Recap","本週進度","文案對比","題材分組","Way Forward"];
 let cur=0;
 const pageInd=document.getElementById('pageInd');
 const progress=document.getElementById('progress');
