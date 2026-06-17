@@ -195,8 +195,8 @@ tbody tr:hover{background:var(--bg-soft)}
         <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--red)"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>發現的問題</h3>
         <ul class="list">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>捏造因果</b>　把原文中各自獨立的事實串聯成「因為…所以…」，原文沒有說的關係被 AI 自行補上</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>關鍵詞義偷換</b>　為求行文簡潔或加強張力，以語感相近的詞語置換原文的精確表述，導致事實意涵錯誤（affected ≠ displaced、pledged to establish a fund ≠ pledged €50M）；政治外交與災難稿尤其高風險</span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>引言相關問題</b>　對 paraphrase 加引號、把間接引語升格為直接引言、壓縮後仍套引號；更嚴重者：幻想原文不存在的發言</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>關鍵詞義偷換</b>　為求行文簡潔或加強張力，以語感相近的詞語置換原文的精確表述，導致事實意涵錯誤（affected ≠ displaced、pledged to establish a €50M fund ≠ pledged €50M）；政治外交與災難稿尤其高風險</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="color:var(--red)"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span><b>引言相關問題</b>　對 paraphrase 加引號升格為直接引言；更嚴重者：幻想原文不存在的發言</span></li>
         </ul>
         <div class="callout" style="margin-top:16px;border-left-color:var(--amber)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--amber)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
@@ -226,12 +226,12 @@ tbody tr:hover{background:var(--bg-soft)}
     <div class="cols">
       <div class="card" style="display:flex;flex-direction:column;gap:14px">
         <div class="kicker" style="color:var(--text-soft)">原方式　連結貼文</div>
-        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Taipei, June 10 (CNA) Fifteen photographic images sent from the Formosat-8A (FS-8A) satellite, the first in Taiwan's Formosat-8 constellation, were released by the Taiwan Space Agency (TASA) on Wednesday.</p>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Fifteen photographic images sent from the Formosat-8A (FS-8A) satellite, the first in Taiwan's Formosat-8 constellation, were released by the Taiwan Space Agency (TASA) on Wednesday.</p>
         <p class="muted" style="font-size:.82rem">電訊稿 lead 直接下，事實清楚但缺乏進入點。</p>
       </div>
       <div class="card" style="display:flex;flex-direction:column;gap:14px;border-color:var(--accent)">
         <div class="kicker">AI 方式　圖像貼文</div>
-        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)">Nine years ago today, documentary filmmaker Chi Po-lin died in a helicopter crash while capturing Taiwan from the air. A satellite named in his honor is now doing the same from space. Taiwan's Formosat-8A — the first in a planned eight-satellite constellation — has released 15 images of the island at up to 0.7-meter resolution, capturing ports, airports, coastlines, and earthquake scars.</p>
+        <p style="font-size:clamp(.9rem,1.4vw,1.05rem);line-height:1.7;color:var(--text)"><mark style="background:rgba(79,155,232,.2);color:inherit;border-radius:4px;padding:1px 4px">Nine years ago today, documentary filmmaker Chi Po-lin died in a helicopter crash while capturing Taiwan from the air.</mark> A satellite named in his honor is now doing the same from space. Taiwan's Formosat-8A — the first in a planned eight-satellite constellation — has released 15 images of the island at up to 0.7-meter resolution, capturing ports, airports, coastlines, and earthquake scars.</p>
         <p class="muted" style="font-size:.82rem">#Taiwan #Satellite #Formosat #Space #TaiwanSpace</p>
       </div>
     </div>
