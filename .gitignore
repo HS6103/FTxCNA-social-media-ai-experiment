@@ -1,5 +1,4 @@
 ﻿node_modules/
 *.png
-*.xlsx
 make_xlsx.js
 講稿提示.md
