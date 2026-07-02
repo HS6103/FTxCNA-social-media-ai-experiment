@@ -1,13 +1,18 @@
-# FT x CNA social media AI experiment
+# READ ME
+
+## How to download?
+
+1. Click the green "Code" button
+2. Click "Download ZIP"
+3. Done, unzip the downloaded files
 
 ## Final report slides
 
 [Link to Github pages](https://hs6103.github.io/FTxCNA-social-media-ai-experiment/)
 
-## File structure
+## File overview
 
 ```markdown
-|   .gitignore
 |   final-report.html                   // 7/1 final report slides source code
 |   index.html                          // For Github Pages deployment
 |   README.md
