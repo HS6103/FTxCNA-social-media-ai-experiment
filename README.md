@@ -23,6 +23,5 @@
 
 ## Contact
 
-[蕭煦宸 Simon Hsiao @ CNA Media Lab](https://www.linkedin.com/in/%E7%85%A6%E5%AE%B8-%E8%95%AD-9a879a2b2/)
-
-[Email](simonhsiao.hs@gmail.com)
++ [蕭煦宸 Simon Hsiao @ CNA Media Lab](https://www.linkedin.com/in/%E7%85%A6%E5%AE%B8-%E8%95%AD-9a879a2b2/)
++ [Email](simon@gws.cna.com.tw)
